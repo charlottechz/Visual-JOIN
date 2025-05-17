@@ -127,21 +127,6 @@
           <button ng-click="addModal('users')">Add</button>
         </div>
 
-        <!-- Join -->
-        <div class="col-sm-4 joins-table">
-          <h3>JOIN</h3>
-          <table>
-            <tr>
-              <th class="user">Name</th>
-              <th class="like">Like</th>
-            </tr>
-            <tr ng-repeat="join in joins">
-              <td ng-class="{ 'is-null': (join.name == 'NULL') }">{{ join.name }}</td>
-              <td ng-class="{ 'is-null': (join.like == 'NULL') }">{{ join.like }}</td>
-            </tr>
-          </table>
-        </div>
-
         <!-- Likes -->
         <div class="col-sm-4">
           <h3>Likes</h3>
@@ -159,8 +144,22 @@
               </td>
             </tr>
           </table>
-
           <button ng-click="addModal('likes')">Add</button>
+        </div>
+
+        <!-- Join -->
+        <div class="col-sm-4 joins-table">
+          <h3>JOIN</h3>
+          <table>
+            <tr>
+              <th class="user">Name</th>
+              <th class="like">Like</th>
+            </tr>
+            <tr ng-repeat="join in joins">
+              <td ng-class="{ 'is-null': (join.name == 'NULL') }">{{ join.name }}</td>
+              <td ng-class="{ 'is-null': (join.like == 'NULL') }">{{ join.like }}</td>
+            </tr>
+          </table>
         </div>
 
       </div>
