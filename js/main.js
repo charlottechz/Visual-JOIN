@@ -27,11 +27,11 @@ function JoinsCtrl($scope) {
       $scope.sql.show_desc = $scope.sql.show_desc ? false : true;
     },
     inner: {
-      query: "  SELECT Users.name,"+
-        "  <br>Likes.like"+
-        "  <br>FROM Users"+
-        "  <br>JOIN Likes"+
-        "  <br>ON users.id=likes.user_id;",
+      query: "   SELECT Users.name,"+
+        "<br>   Likes.like"+
+        "<br>   FROM Users"+
+        "<br>   JOIN Likes"+
+        "<br>   ON users.id=likes.user_id;",
       desc: "INNER JOIN (or just JOIN) returns records that have values in both tables."
     },
     left: {
