@@ -51,9 +51,9 @@ input { padding: 5px; border: 1px solid #ccc; border-radius: 4px; width: 160px; 
 
 /* SQL */
 .sql-table {
-  width: 100%;
+  width: auto;
   max-width: 600px;
-  margin: 0 auto 30px auto;
+  margin: 0;
   font-size: 14px; 
   background: #fff; border: 1px solid #ddd; 
   position: relative;
