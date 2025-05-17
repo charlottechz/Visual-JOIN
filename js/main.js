@@ -6,19 +6,19 @@ function JoinsCtrl($scope) {
 
 
   $scope.users = [
-    { id: 1, name: 'Patrik' },
-    { id: 2, name: 'Albert' },
-    { id: 3, name: 'Maria' },
-    { id: 4, name: 'Darwin' },
-    { id: 5, name: 'Elizabeth' }
+    { id: 1, name: 'Charlotte' },
+    { id: 2, name: 'Jalen' },
+    { id: 3, name: 'Sarah' },
+    { id: 4, name: 'Mei' },
+    { id: 5, name: 'Himanshi' }
   ];
 
   $scope.likes = [
-    { user_id: 3, like: 'Stars' },
-    { user_id: 1, like: 'Climbing' },
-    { user_id: 1, like: 'Code' },
-    { user_id: 6, like: 'Rugby' },
-    { user_id: 4, like: 'Apples' }
+    { user_id: 3, like: 'LEGO Sets' },
+    { user_id: 1, like: 'Teaching' },
+    { user_id: 1, like: 'SQL Coding' },
+    { user_id: 6, like: 'Filing Taxes' },
+    { user_id: 4, like: 'Watching Sunsets' }
   ];
 
   $scope.sql = {
