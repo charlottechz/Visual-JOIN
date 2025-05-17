@@ -29,17 +29,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;300;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-3962579-3', 'spathon.com');
-      ga('send', 'pageview');
-
-    </script>
-
   </head>
   <body ng-controller="JoinsCtrl">
     <!--[if lt IE 9]>
@@ -50,7 +39,7 @@
 
       <h1 class="title">
         JOIN Visualizer
-        <span>Click on each type of join to see how they create different results from the Users and Likes tables.</span>
+        <span>Click on each type of join to see how they create different results from the Users and Likes tables</span>
       </h1>
 
       <div class="row joins clearfix">
@@ -163,9 +152,13 @@
             </tr>
           </table>
         </div>
-
       </div>
 
+      <div class="container">
+      <h1>
+        <span>Hover over the Users or Likes tables to add or remove rows</span>
+      </h1>
+      </div>
 
       <div class="modal" ng-show="modalType">
         <form ng-submit="addItem()" ng-show="modalType == 'add'">
