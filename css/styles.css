@@ -9,7 +9,7 @@ a { color: #00A0B0; text-decoration: none; }
 
 h1, h2, h3, h4, h5, h6 {color: #413e9d; margin: 0 0 20px; }
 h1 { font-weight: bold; font-size: 55px; text-align: center;
-  color: #413e9d; text-shadow: 2px 2px 0 #ddd; padding: 40px 0;
+  color: #413e9d; padding: 40px 0;
 }
 h1 span { font-size: 17px; display: block; color: #000;}
 h2 { font-size: 22px; }
@@ -20,10 +20,10 @@ tr:nth-of-type(even) td { background: #fafafa; }
 th, td { border-bottom: 1px solid #ddd; }
 
 /* Forms and buttons */
-button { background: #5EC456; border: 1px solid #3E9436; color: #fff; text-shadow: 1px 1px 0 #3E9436;
+button { background: #5EC456; border: 1px solid #3E9436; color: #fff; 
   padding: 3px 7px; border-radius: 4px; }
 button:hover { background: #4Eb446; }
-.danger { background: #cecef9; border-color: #cecef9; text-shadow: 1px 1px 0 #cecef9; padding: 0 5px; font-weight: bold; font-size: 14px; margin-top: 2px; }
+.danger { background: #cecef9; border-color: #cecef9; padding: 0 5px; font-weight: bold; font-size: 14px; margin-top: 2px; }
 .danger:hover { background: #cecef9; }
 input { padding: 5px; border: 1px solid #ccc; border-radius: 4px; width: 160px; }
 .input-sm { width: 47px; }
@@ -74,7 +74,7 @@ input { padding: 5px; border: 1px solid #ccc; border-radius: 4px; width: 160px; 
   border-collapse: collapse;
 }
 .sql-table td { border: none; padding: 10px 0; vertical-align: middle; position: relative; }
-.sql { margin: 0 0 30px; text-align: center; color: #777; text-shadow: 1px 1px 0 #fff; }
+.sql { margin: 0 0 30px; text-align: center; color: #777; }
 
 .show-desc { position: absolute; bottom: -24px; right: -1px; padding: 1px 5px 3px; border-radius: 0 0 4px 4px;
   color: #00A0B0; border: 1px solid #ddd; border-top: none; background: #f9f9f9; }
