@@ -254,7 +254,7 @@ var height = 150,                         // Canvas height
     center = height / 2,                  // first circle center left and both center top
     center2 = height,                     // Second circle
     radius = center - strokeWidth,        // The circles radius
-    fillColor = "#CC333F";                // The fill color
+    fillColor = "#cecef9";                // The fill color
 
 // Set attributes on the svg tag
 var svgAttr = {
@@ -267,7 +267,7 @@ var svgAttr = {
 // Default attributes for the circles
 var defaultAttr = {
   fill: "none",
-  stroke: "#EB6841",
+  stroke: "#ffbf00",
   strokeWidth: strokeWidth
 };
 
@@ -336,7 +336,7 @@ for(var svg in svgs){
 
     if(key == 'c1'){
       current[key].attr({
-        stroke: "#00A0B0"
+        stroke: "#00c8c6"
       })
     }
   });
@@ -372,6 +372,6 @@ var outer = svgs.outer.main;
 var cc1 = outer.circle(center,center,radius);
 cc1.attr({
     fill: "none",
-    stroke: "#00A0B0",
+    stroke: "#00c8c6",
     strokeWidth: strokeWidth
 });
