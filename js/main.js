@@ -240,78 +240,114 @@ function JoinsCtrl($scope) {
 }
 
 
-// Shared setup
-var height = 150;
-var width = 225;
-var overlap = 40;
-var radius = 60;
 
-var cx1 = width / 2 - overlap / 2;
-var cx2 = width / 2 + overlap / 2;
-var cy = height / 2;
 
+
+// Heigh and width = canvas
+var height = 150,                         // Canvas height
+    width = height + height / 2,          // Canvas width
+    ratio = (window.innerWidth < 410 ) ? .25 : .5, // The <svg> size in ratio (If is mobile)
+    strokeWidth = 3,                      // Circle stroke width
+    s_width = width*ratio,                // <svg> width
+    s_height = (height / width * s_width),// <svg> height
+
+    center = height / 2,                  // first circle center left and both center top
+    center2 = height,                     // Second circle
+    radius = center - strokeWidth,        // The circles radius
+    fillColor = "#CC333F";                // The fill color
+
+// Set attributes on the svg tag
 var svgAttr = {
-  viewBox: "0 0 " + width + " " + height,
-  width: "100%",
-  height: "auto",
-  preserveAspectRatio: "xMidYMid meet"
+  viewBox: "0 0 "+ width +" "+ height,
+  preserveAspectRatio: "xMaxYmax",
+  width: s_width,
+  height: s_height
 };
 
-// INNER JOIN
-var inner = Snap("#inner").attr(svgAttr);
-var c1 = inner.circle(cx1, cy, radius).attr({
-  fill: "#cecef9",
-  stroke: "#00c8c6",
-  strokeWidth: 3
-});
-var c2 = inner.circle(cx2, cy, radius).attr({
-  fill: "#fff"
-});
-c1.attr({
-  mask: c2
-});
-
-// LEFT JOIN
-var left = Snap("#left").attr(svgAttr);
-var c1 = left.circle(cx1, cy, radius).attr({
-  fill: "#cecef9",
-  stroke: "#00c8c6",
-  strokeWidth: 3
-});
-var c2 = left.circle(cx2, cy, radius).attr({
+// Default attributes for the circles
+var defaultAttr = {
   fill: "none",
-  stroke: "#ffbf00",
-  strokeWidth: 3
-});
+  stroke: "#EB6841",
+  strokeWidth: strokeWidth
+};
 
-// RIGHT JOIN
-var right = Snap("#right").attr(svgAttr);
-var c1 = right.circle(cx1, cy, radius).attr({
-  fill: "none",
-  stroke: "#00c8c6",
-  strokeWidth: 3
-});
-var c2 = right.circle(cx2, cy, radius).attr({
-  fill: "#cecef9",
-  stroke: "#ffbf00",
-  strokeWidth: 3
-});
+// Create an object for the svg's with custom settings
+var svgs = {
+  // Inner Join
+  inner: {},
+  // Left Join
+  left: {
+    attr: {
+      c1: {
+        fill: fillColor
+      },
+      c2: {
+        fill: "transparent"
+      }
+    }//
+  },
+  // Right Join
+  right: {
+    reverse: true,
+    attr: {
+      c1: {
+        fill: "transparent"
+      },
+      c2: {
+        fill: fillColor
+      }
+    }//
+  },
+  // Outer Join
+  outer: {
+    attr: {
+      c1: {
+        fill: fillColor
+      },
+      c2: {
+        fill: fillColor
+      }
+    }
+  }
+};
 
-// OUTER JOIN
-var outer = Snap("#outer").attr(svgAttr);
-var c1 = outer.circle(cx1, cy, radius).attr({
-  fill: "#cecef9",
-  stroke: "#00c8c6",
-  strokeWidth: 3
-});
-var c2 = outer.circle(cx2, cy, radius).attr({
-  fill: "#cecef9",
-  stroke: "#ffbf00",
-  strokeWidth: 3
-});
+// Loop through all svg's and create the circles
+for(var svg in svgs){
 
+  // Attach the current object to a variable
+  var current = svgs[svg];
+  current.main = Snap("#"+ svg).attr(svgAttr);
 
+  // Create an array of the 2 circles and if isset revers the order
+  var circles = ['c1', 'c2'];
+  if(current.reverse) circles.reverse()
 
+  // Loop through the 2 circles
+  circles.forEach(function(key){
+
+    // depending on which circle make left center different
+    var center1 = (key == 'c1') ? center : center2;
+    var table = (key == 'c1') ? 'users' : 'likes';
+
+    // Create the circle with default attr and the table it represent
+    current[key] = current.main.circle(center1, center, radius)
+                    .attr(defaultAttr)
+                    .data('table', table);
+
+    if(key == 'c1'){
+      current[key].attr({
+        stroke: "#00A0B0"
+      })
+    }
+  });
+
+  // Set custom attributes on the circles
+  if(typeof current.attr != 'indefined'){
+    for(var circle in current.attr){
+      current[circle].attr(current.attr[circle]);
+    }
+  }
+};
 
 
 // inner
@@ -336,6 +372,6 @@ var outer = svgs.outer.main;
 var cc1 = outer.circle(center,center,radius);
 cc1.attr({
     fill: "none",
-    stroke: "#00c8c6",
+    stroke: "#00A0B0",
     strokeWidth: strokeWidth
 });
