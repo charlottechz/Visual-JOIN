@@ -27,23 +27,35 @@ function JoinsCtrl($scope) {
       $scope.sql.show_desc = $scope.sql.show_desc ? false : true;
     },
     inner: {
-      query: "SELECT users.name, likes.like FROM users JOIN likes ON users.id = likes.user_id;",
+      query: "  SELECT Users.name,"+
+        "  <br>Likes.like"+
+        "  <br>FROM Users"+
+        "  <br>JOIN Likes"+
+        "  <br>ON users.id=likes.user_id;",
       desc: "INNER JOIN or just JOIN retrieves all users and likes that match each other ( where the id field in users matches a user_id in the likes table and vice versa )"
     },
     left: {
-      query: "SELECT users.name, likes.like FROM users LEFT JOIN likes ON users.id = likes.user_id;",
+      query: "  SELECT Users.name,"+
+        "  <br>Likes.like"+
+        "  <br>FROM Users"+
+        "  <br>LEFT JOIN Likes"+
+        "  <br>ON users.id=likes.user_id;",
       desc: "LEFT JOIN retrieves all users and its likes if there is any else sets NULL in the like field"
     },
     right: {
-      query: "SELECT users.name, likes.like FROM users RIGHT JOIN likes ON users.id = likes.user_id;",
+      query: "  SELECT Users.name,"+
+        "  <br>Likes.like"+
+        "  <br>FROM Users"+
+        "  <br>RIGHT JOIN Likes"+
+        "  <br>ON users.id=likes.user_id;",
       desc: "RIGHT JOIN is like LEFT JOIN but retrieves all likes with all matching users or NULL if it doesn't have any matching user"
     },
     outer: {
-      query: "SELECT Users.name,"+
-        "<br>Likes.like"+
-        "<br>FROM Users"+
-        "<br>FULL JOIN Likes"+
-        "<br>ON users.id=likes.user_id;",
+      query: "  SELECT Users.name,"+
+        "  <br>Likes.like"+
+        "  <br>FROM Users"+
+        "  <br>FULL JOIN Likes"+
+        "  <br>ON users.id=likes.user_id;",
       desc: "FULL JOIN retrieves all users and likes, even if a column from one or both tables is NULL (empty)."
     }
   };
