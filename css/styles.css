@@ -45,8 +45,10 @@ input { padding: 5px; border: 1px solid #ccc; border-radius: 4px; width: 160px; 
 .join { padding: 10px; border: 1px solid transparent; transition: -webkit-transform .4s, background .2s; }
 .join:hover { -webkit-transform: scale(1.1); }
 .join:hover,
-.current-join { cursor: pointer; background: #fff; border-color: #ddd; border-radius: 4px; }
-
+.current-join { cursor: pointer; background: #fff; border-color: #ddd; border-radius: 4px
+  border: 2px solid #625dec;
+  box-shadow: 0 0 8px rgba(98, 93, 236, 0.2);
+}
 
 
 /* SQL */
