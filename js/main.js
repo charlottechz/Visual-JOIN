@@ -190,10 +190,10 @@ function JoinsCtrl($scope) {
     $scope.joins = result;
   };
 
-
-  // SELECT users.name, likes.like FROM users LEFT OUTER JOIN likes ON users.id = likes.user_id
-  // UNION
-  // SELECT users.name, likes.like FROM users RIGHT OUTER JOIN likes ON users.id = likes.user_id
+  // SELECT Users.name, Likes.like
+  // FROM Users 
+  // FULL JOIN Likes
+  // ON users.id=likes.user_id
   $scope.outerJoin = function(){
 
     var result = [];
